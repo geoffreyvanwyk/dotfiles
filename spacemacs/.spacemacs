@@ -310,6 +310,23 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;;---------------------------------------------------------------------------
+  ;; Work-arounds 
+  ;;---------------------------------------------------------------------------
+
+  ;; Call this function if `SPC b b' and `SPC l b' stops working.
+  (with-eval-after-load "persp-mode"
+
+    (defun persp-remove-killed-buffers ()
+      (interactive)
+      (mapc #'(lambda (p)
+                (when p
+                  (setf (persp-buffers p)
+                        (delete-if-not #'buffer-live-p
+                                       (persp-buffers p)))))
+            (persp-persps)))
+    )
+
+  ;;---------------------------------------------------------------------------
   ;; ERC - Emacs IRC Client
   ;;---------------------------------------------------------------------------
 
