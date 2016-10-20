@@ -326,6 +326,7 @@ you should place your code here."
                                        "#hackerrank"
                                        "##javascript"
                                        "#laravel"
+                                       "#leiningen"
                                        "##php"
                                        "#org-mode"))
         erc-hide-list '("JOIN" "PART" "QUIT"))
