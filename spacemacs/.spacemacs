@@ -187,7 +187,7 @@ values."
    dotspacemacs-display-default-layout t
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil 
+   dotspacemacs-auto-resume-layouts t 
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -389,6 +389,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-phpcs-standard "PSR2")
  '(markdown-command "/usr/bin/pandoc")
+ '(paradox-github-token t)
  '(php-lineup-cascaded-calls t)
  '(php-mode-coding-style (quote psr2)))
 (custom-set-faces
