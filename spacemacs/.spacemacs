@@ -37,6 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
+     asciidoc
      auto-completion
      ;; better-defaults
      clojure
@@ -58,6 +59,7 @@ values."
      sql
      syntax-checking
      version-control
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -308,6 +310,23 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;;---------------------------------------------------------------------------
+  ;; Work-arounds 
+  ;;---------------------------------------------------------------------------
+
+  ;; Call this function if `SPC b b' and `SPC l b' stops working.
+  (with-eval-after-load "persp-mode"
+
+    (defun persp-remove-killed-buffers ()
+      (interactive)
+      (mapc #'(lambda (p)
+                (when p
+                  (setf (persp-buffers p)
+                        (delete-if-not #'buffer-live-p
+                                       (persp-buffers p)))))
+            (persp-persps)))
+    )
+
+  ;;---------------------------------------------------------------------------
   ;; ERC - Emacs IRC Client
   ;;---------------------------------------------------------------------------
 
@@ -372,6 +391,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-phpcs-standard "PSR2")
  '(markdown-command "/usr/bin/pandoc")
+ '(paradox-github-token t)
  '(php-lineup-cascaded-calls t)
  '(php-mode-coding-style (quote psr2)))
 (custom-set-faces
