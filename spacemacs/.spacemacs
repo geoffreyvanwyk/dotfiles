@@ -42,7 +42,7 @@ values."
      ;; better-defaults
      clojure
      emacs-lisp
-     erc
+     erc 
      emoji
      games
      git
@@ -342,7 +342,7 @@ you should place your code here."
                       (persp-get-by-name "@ERC")
                       nil))
 
-  (setq erc-nick "systemovich"
+  (setq erc-prompt-for-password nil
         erc-prompt-for-nickserv-password nil
         erc-autojoin-channels-alist '(("freenode.net"
                                        "#bash"
@@ -353,7 +353,9 @@ you should place your code here."
                                        "#laravel"
                                        "#leiningen"
                                        "##php"
-                                       "#org-mode"))
+                                       "#org-mode")
+                                      ("irc.gitter.im"
+                                       "#syl20bnr/spacemacs"))
         erc-hide-list '("JOIN" "PART" "QUIT"))
 
   (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)

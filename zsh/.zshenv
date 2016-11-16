@@ -3,9 +3,18 @@
 #------------------------------------------------------------------------------
 
 #---Execution Path-------------------------------------------------------------
-export PATH=$HOME/.composer/vendor/bin:$PATH
+
+if [[ ":$PATH:" != *":${HOME}/.composer/vendor/bin:"* ]]; then
+    export PATH=$HOME/.composer/vendor/bin:$PATH
+fi
+
 export PATH=$HOME/.npm-global/bin:$PATH
 
+#---Cryptography---------------------------------------------------------------
+
+export GPGKEY=127ED2EB
+
 #---GitLab---------------------------------------------------------------------
+
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v3
 export GITLAB_API_PRIVATE_TOKEN=eykmYXxy4JpNd68u9z3k
