@@ -3,7 +3,12 @@
 #------------------------------------------------------------------------------
 
 alias artisan=./artisan
+
 alias phinx='./vendor/bin/phinx'
+alias phinxs='./vendor/bin/phinx status -e development'
+alias phinxm='./vendor/bin/phinx migrate -e development'
+alias phinxr='./vendor/bin/phinx rollback -e development'
+
 alias xdebug-on='sudo phpenmod -s cli xdebug'
 alias xdebug-off='sudo phpdismod -s cli xdebug'
 
