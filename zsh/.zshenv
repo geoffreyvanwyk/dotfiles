@@ -8,7 +8,13 @@ if [[ ":$PATH:" != *":${HOME}/.composer/vendor/bin:"* ]]; then
     export PATH=$HOME/.composer/vendor/bin:$PATH
 fi
 
-export PATH=$HOME/.npm-global/bin:$PATH
+if [[ ":$PATH:" != *":${HOME}/.npm-global/bin:"* ]]; then
+    export PATH=$HOME/.npm-global/bin:$PATH
+fi
+
+if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
+    export PATH=$HOME/bin:$PATH
+fi
 
 #---Cryptography---------------------------------------------------------------
 
