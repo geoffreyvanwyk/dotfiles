@@ -40,20 +40,19 @@ values."
      asciidoc
      auto-completion
      ;; better-defaults
-     clojure
+     (clojure :variables clojure-enable-fancify-symbols t)
      emacs-lisp
      (erc :variables
           erc-prompt-for-password nil
           erc-prompt-for-nickserv-password nil
-          erc-server-list
-          '(("irc.freenode.net"
-             :port "6697"
-             :ssl t
-             :nick "systemovich")
-            ("irc.gitter.im"
-             :port "6697"
-             :ssl t
-             :nick "systemovich"))
+          erc-server-list '(("irc.freenode.net"
+                             :port "6697"
+                             :ssl t
+                             :nick "systemovich")
+                            ("irc.gitter.im"
+                             :port "6697"
+                             :ssl t
+                             :nick "systemovich"))
           erc-autojoin-channels-alist '(("freenode.net"
                                          "#bash"
                                          "#clojure"
