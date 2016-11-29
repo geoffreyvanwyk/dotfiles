@@ -334,13 +334,13 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;;---------------------------------------------------------------------------
-  ;; Editing 
+  ;; Editing
   ;;---------------------------------------------------------------------------
 
   (smartparens-global-mode)
 
   ;;---------------------------------------------------------------------------
-  ;; Buffers 
+  ;; Buffers
   ;;---------------------------------------------------------------------------
 
   ;; Call this function if `SPC b b' and `SPC l b' stops working.
