@@ -64,7 +64,8 @@ values."
                                          "##php"
                                          "#org-mode")
                                         ("irc.gitter.im"
-                                         "#syl20bnr/spacemacs"))
+                                         "#syl20bnr/spacemacs"
+                                         "#magit/magit"))
           erc-hide-list '("JOIN" "PART" "QUIT")
           )
      emoji
@@ -76,6 +77,7 @@ values."
      markdown
      org
      php
+     semantic
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -337,7 +339,7 @@ you should place your code here."
   ;; Editing
   ;;---------------------------------------------------------------------------
 
-  (smartparens-global-mode)
+  (smartparens-global-mode 1)
 
   ;;---------------------------------------------------------------------------
   ;; Buffers
