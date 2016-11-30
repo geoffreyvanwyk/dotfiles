@@ -65,7 +65,8 @@ values."
                                          "#org-mode")
                                         ("irc.gitter.im"
                                          "#syl20bnr/spacemacs"
-                                         "#magit/magit"))
+                                         "#magit/magit"
+                                         "#laravel/laravel"))
           erc-hide-list '("JOIN" "PART" "QUIT")
           )
      emoji
