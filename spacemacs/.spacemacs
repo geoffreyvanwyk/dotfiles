@@ -54,18 +54,29 @@ values."
                              :ssl t
                              :nick "systemovich"))
           erc-autojoin-channels-alist '(("freenode.net"
-                                         "#bash"
+                                         ;; Clojure
                                          "#clojure"
-                                         "#git"
-                                         "#hackerrank"
-                                         "##javascript"
-                                         "#laravel"
                                          "#leiningen"
+                                         ;; Coding Katas
+                                         "#hackerrank"
+                                         ;; Emacs
+                                         "#emacs"
+                                         "#org-mode"
+                                         "#spacemacs"
+                                         ;; Javascript
+                                         "##javascript"
+                                         ;; PHP
                                          "##php"
-                                         "#org-mode")
+                                         "#laravel"
+                                         ;; Tools
+                                         "#bash"
+                                         "#eclipse"
+                                         "#git")
                                         ("irc.gitter.im"
+                                         ;; Emacs
                                          "#syl20bnr/spacemacs"
                                          "#magit/magit"
+                                         ;; PHP
                                          "#laravel/laravel"))
           erc-hide-list '("JOIN" "PART" "QUIT")
           )
@@ -78,7 +89,6 @@ values."
      markdown
      org
      php
-     semantic
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
