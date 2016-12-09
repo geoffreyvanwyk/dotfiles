@@ -68,6 +68,7 @@ values."
                                          ;; PHP
                                          "##php"
                                          "#laravel"
+                                         "#slimphp"
                                          ;; Tools
                                          "#bash"
                                          "#eclipse"
@@ -95,6 +96,7 @@ values."
      spell-checking
      sql
      syntax-checking
+     themes-megapack
      version-control
      yaml
      )
@@ -368,18 +370,6 @@ you should place your code here."
                                        (persp-buffers p)))))
             (persp-persps)))
     )
-
-  ;;---------------------------------------------------------------------------
-  ;; ERC - Emacs IRC Client
-  ;;---------------------------------------------------------------------------
-
-  (defun systemovich/add-channel-to-erc-layout ()
-    "Adds an ERC channel buffer to the @ERC layout."
-    (persp-add-buffer (buffer-name)
-                      (persp-get-by-name "@ERC")
-                      nil))
-
-  (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)
 
   ;;---------------------------------------------------------------------------
   ;; Scrolling
