@@ -371,6 +371,15 @@ you should place your code here."
             (persp-persps)))
     )
 
+
+  ;;---------------------------------------------------------------------------
+  ;; Layouts 
+  ;;---------------------------------------------------------------------------
+
+  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@Spacemacs)
+  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@Org)
+  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@ERC)
+
   ;;---------------------------------------------------------------------------
   ;; Scrolling
   ;;---------------------------------------------------------------------------
@@ -408,11 +417,15 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-phpcs-standard "PSR2")
  '(markdown-command "/usr/bin/pandoc")
+ '(org-agenda-files (quote ("~/Documents/my/notes/org/")))
  '(org-default-notes-file "TODO.org")
- '(org-directory "~/Documents/org")
+ '(org-directory "~/Documents/my/notes/org/")
  '(paradox-github-token t)
  '(php-lineup-cascaded-calls t)
- '(php-mode-coding-style (quote psr2)))
+ '(php-mode-coding-style (quote psr2))
+ '(yas-snippet-dirs
+   (quote
+    ("/home/geoffrey/.emacs.d/private/snippets/" yas-installed-snippets-dir "/home/geoffrey/.emacs.d/layers/+completion/auto-completion/local/snippets" "/home/geoffrey/.emacs.d/elpa/clojure-snippets-20161024.16/snippets" "/home/geoffrey/.yasnippets/"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
