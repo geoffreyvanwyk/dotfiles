@@ -56,6 +56,8 @@ values."
           erc-autojoin-channels-alist '(("freenode.net"
                                          ;; Clojure
                                          "#clojure"
+                                         "#clojure-beginners"
+                                         "#clojurescript"
                                          "#leiningen"
                                          ;; Coding Katas
                                          "#hackerrank"
@@ -352,6 +354,7 @@ you should place your code here."
   ;; Editing
   ;;---------------------------------------------------------------------------
 
+  (setq vc-follow-symlinks t)
   (smartparens-global-mode 1)
 
   ;;---------------------------------------------------------------------------
@@ -373,7 +376,7 @@ you should place your code here."
 
 
   ;;---------------------------------------------------------------------------
-  ;; Layouts 
+  ;; Layouts
   ;;---------------------------------------------------------------------------
 
   (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@Spacemacs)
