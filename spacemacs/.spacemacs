@@ -373,14 +373,6 @@ you should place your code here."
 
 
   ;;---------------------------------------------------------------------------
-  ;; Layouts 
-  ;;---------------------------------------------------------------------------
-
-  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@Spacemacs)
-  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@Org)
-  (add-hook 'persp-mode-hook #'spacemacs/custom-perspective-@ERC)
-
-  ;;---------------------------------------------------------------------------
   ;; Scrolling
   ;;---------------------------------------------------------------------------
 
@@ -413,6 +405,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(erc-track-minor-mode nil)
+ '(erc-track-mode nil)
  '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-phpcs-standard "PSR2")
@@ -423,6 +417,7 @@ you should place your code here."
  '(paradox-github-token t)
  '(php-lineup-cascaded-calls t)
  '(php-mode-coding-style (quote psr2))
+ '(vc-follow-symlinks t)
  '(yas-snippet-dirs
    (quote
     ("/home/geoffrey/.emacs.d/private/snippets/" yas-installed-snippets-dir "/home/geoffrey/.emacs.d/layers/+completion/auto-completion/local/snippets" "/home/geoffrey/.emacs.d/elpa/clojure-snippets-20161024.16/snippets" "/home/geoffrey/.yasnippets/"))))
