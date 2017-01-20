@@ -42,47 +42,6 @@ values."
      ;; better-defaults
      (clojure :variables clojure-enable-fancify-symbols t)
      emacs-lisp
-     (erc :variables
-          erc-prompt-for-password nil
-          erc-prompt-for-nickserv-password nil
-          erc-server-list '(("irc.freenode.net"
-                             :port "6697"
-                             :ssl t
-                             :nick "systemovich")
-                            ("irc.gitter.im"
-                             :port "6697"
-                             :ssl t
-                             :nick "systemovich"))
-          erc-autojoin-channels-alist '(("freenode.net"
-                                         ;; Clojure
-                                         "#clojure"
-                                         "#clojure-beginners"
-                                         "#clojurescript"
-                                         "#leiningen"
-                                         ;; Coding Katas
-                                         "#hackerrank"
-                                         ;; Emacs
-                                         "#emacs"
-                                         "#org-mode"
-                                         "#spacemacs"
-                                         ;; Javascript
-                                         "##javascript"
-                                         ;; PHP
-                                         "##php"
-                                         "#laravel"
-                                         "#slimphp"
-                                         ;; Tools
-                                         "#bash"
-                                         "#eclipse"
-                                         "#git")
-                                        ("irc.gitter.im"
-                                         ;; Emacs
-                                         "#syl20bnr/spacemacs"
-                                         "#magit/magit"
-                                         ;; PHP
-                                         "#laravel/laravel"))
-          erc-hide-list '("JOIN" "PART" "QUIT")
-          )
      emoji
      games
      git
@@ -91,7 +50,6 @@ values."
      javascript
      markdown
      org
-     php
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -374,22 +332,9 @@ you should place your code here."
             (persp-persps)))
     )
 
-  ;; Scrolling
-  ;;---------------------------------------------------------------------------
-
-  ;; These three settings are for keeping the prompt at the bottom of the
-  ;; buffer in ERC mode.
-
-  (setq scroll-step 1)
-  (setq scroll-conservatively 10000)
-  (setq auto-window-vscroll nil)
-
   ;;---------------------------------------------------------------------------
   ;; Web Mode
   ;;---------------------------------------------------------------------------
-
-  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
 
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
