@@ -24,3 +24,7 @@ export GPGKEY=127ED2EB
 
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v3
 export GITLAB_API_PRIVATE_TOKEN=eykmYXxy4JpNd68u9z3k
+
+#---Tmux-----------------------------------------------------------------------
+
+export ZSH_TMUX_AUTOSTART=true
