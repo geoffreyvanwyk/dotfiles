@@ -37,6 +37,8 @@ export GPGKEY=127ED2EB
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v3
 export GITLAB_API_PRIVATE_TOKEN=eykmYXxy4JpNd68u9z3k
 
-#---Tmux-----------------------------------------------------------------------
+#---Colored Man Pages------------------------------------------------------------
 
-export ZSH_TMUX_AUTOSTART=true
+# In order for the colored-man-pages plugin to work, this variable has to be set
+# to 1. It is used by the grotty program. See `man grotty`.
+export GROFF_NO_SGR=1
