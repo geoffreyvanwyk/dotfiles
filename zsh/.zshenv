@@ -9,15 +9,24 @@
 if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
     export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi
+
+# Node.js Package Manager: NPM
+if [[ ":$PATH:" != *":${HOME}/.npm_global/bin:"* ]]; then
+    export PATH=$HOME/.npm_global/bin:$PATH
 fi
 
-if [[ ":$PATH:" != *":${HOME}/.npm-global/bin:"* ]]; then
-    export PATH=$HOME/.npm-global/bin:$PATH
+# Node.js Version Manager: N
+if [[ ":$PATH:" != *":${HOME}/.n/bin:"* ]]; then
+    export PATH=$HOME/.n/bin:$PATH
 fi
 
 if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
     export PATH=$HOME/bin:$PATH
 fi
+
+#---Node.js Version Manager----------------------------------------------------
+
+export N_PREFIX=$HOME/.n
 
 #---Cryptography---------------------------------------------------------------
 
