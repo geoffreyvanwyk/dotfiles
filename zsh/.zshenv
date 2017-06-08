@@ -4,8 +4,11 @@
 
 #---Execution Path-------------------------------------------------------------
 
-if [[ ":$PATH:" != *":${HOME}/.composer/vendor/bin:"* ]]; then
-    export PATH=$HOME/.composer/vendor/bin:$PATH
+
+# PHP Package Manager: Composer
+if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
+    export PATH=$HOME/.config/composer/vendor/bin:$PATH
+fi
 fi
 
 if [[ ":$PATH:" != *":${HOME}/.npm-global/bin:"* ]]; then
