@@ -1,5 +1,6 @@
 *swp
 /vim/.vim/plugged
 /vim/.vim/ycm_temp
+/vim/.vim/.netrwhist
 /psysh/.config/psysh/psysh_history
 
