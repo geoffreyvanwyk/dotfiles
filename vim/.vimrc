@@ -1,15 +1,15 @@
 "-----------------------------------------------------------------------------
-"---# Plug-ins
+"---# Plug-ins {{{1
 
 " Install and configure plug-ins.
 
-"------## Installation
+"------## Installation {{{2
 
 " Install plug-ins using github.com/junegunn/vim-plug
 
 call plug#begin('~/.vim/plugged') " Directory into which plug-ins are cloned.
 
-"---------### General
+"---------### General {{{3
 
 " A universal set of defaults that everyone can agree on.
 Plug 'tpope/vim-sensible'
@@ -18,7 +18,7 @@ Plug 'tpope/vim-sensible'
 " This is the first screen you see after starting Vim
 Plug 'mhinz/vim-startify'
 
-"---------### Appearance
+"---------### Appearance {{{3
 
 " A dark color scheme
 Plug 'mhinz/vim-janah'
@@ -30,12 +30,12 @@ Plug 'mhinz/vim-janah'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"---------### Debugging
+"---------### Debugging {{{3
 
 " Multilanguage debugger client (PHP, Python, Perl, Ruby, etc.)
 Plug 'joonty/vdebug'
 
-"---------### Editing
+"---------### Editing {{{3
 
 " Keyboard shortcuts for quickly adding, changing, or removing parentheses,
 " braces, quotes, brackets, and XML/HTML tags around text.
@@ -54,7 +54,7 @@ Plug 'Shougo/neocomplete.vim'
 " Commands for quickly commenting source code.
 Plug 'scrooloose/nerdcommenter'
 
-"---------### File System
+"---------### File System {{{3
 
 " Presents a tree-view of file system, and allows performance of simple file
 " system operations.
@@ -64,7 +64,7 @@ Plug 'scrooloose/nerdtree'
 " Vim.
 Plug 'ctrlpvim/ctrlp.vim'
 
-"---------### Language: JavaScript
+"---------### Language: JavaScript {{{3
 
 " JSON syntax highlighting.
 " Keywords have one color, and values another.
@@ -73,7 +73,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Warns about invalid syntax.
 Plug 'elzr/vim-json'
 
-"---------### Language: PHP
+"---------### Language: PHP {{{3
 
 " Up-to-date PHP syntax highlighting (5.3 - 7.1)
 Plug 'StanAngeloff/php.vim'
@@ -81,7 +81,7 @@ Plug 'StanAngeloff/php.vim'
 " Autocompletion for PHP
 " Plug 'shawncplus/phpcomplete.vim'
 
-"---------### Version Control
+"---------### Version Control {{{3
 
 " A Vim user interface for Git
 Plug 'tpope/vim-fugitive'
@@ -90,11 +90,14 @@ Plug 'tpope/vim-fugitive'
 " added, changed, or deleted. Also, allows for staging or reverting of hunks.
 Plug 'airblade/vim-gitgutter'
 
+" Repository viewer.
+Plug 'gregsexton/gitv', {'on': 'Gitv'}
+
 call plug#end()
 
-"------## Configuration
+"------## Configuration {{{2
 
-"---------### Plug-in: Airline
+"---------### Plug-in: Airline {{{3
 
 let g:airline_theme='bubblegum'
 
@@ -108,25 +111,29 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
 
-"---------### Plug-in: DelimitMate
+"---------### Plug-in: DelimitMate {{{3
 
 " Autoindent when pressing enter inside a delimiting pair.
 let g:delimitMate_expand_cr = 1
 
-"---------### Plug-in: Neocomplete
+"---------### Plug-in: Neocomplete {{{3
 
 " Start Neocomplete when Vim starts
 let g:necomplete#enable_at_startup=1
 
+"---------### Plug-in: Startify {{{3
+
+let g:startify_bookmarks = [ '$HOME/.dotfiles/vim/.vimrc', '$HOME/.dotfiles/zsh/.zshrc' ]
+
 
 "-----------------------------------------------------------------------------
-"---# Abbreviations
+"---# Abbreviations {{{1
 
 " An abbreviation is a short word that takes the place of a long one.
 " In INSERT mode, replaces the short word with the long one after you press
 " <SPACE> after the short one.
 
-"---## Comment Headings
+"---## Comment Headings {{{2
 
 "---### VimScript
 iabbrev vhr "------------------------------------------------------------------------------
@@ -148,7 +155,7 @@ iabbrev bh6 #------------------######
 
 
 "------------------------------------------------------------------------------
-"---# Appearance
+"---# Appearance {{{1
 
 colorscheme janah
 
@@ -159,7 +166,11 @@ set cursorline
 " character that fits on the screen.
 set linebreak
 
-"------## GUI Options
+"------## Folding {{{2
+
+set foldmethod=marker
+
+"------## GUI Options {{{2
 
 " Hide the menu bar.
 set guioptions -=m
@@ -178,7 +189,7 @@ endif
 
 
 "------------------------------------------------------------------------------
-"---# Autocommands
+"---# Autocommands {{{1
 
 " Define commands to be automatically executed when certain events occur.
 
@@ -196,9 +207,9 @@ augroup END
 
 
 "------------------------------------------------------------------------------
-"---# Editing
+"---# Editing {{{1
 
-"------## Completion
+"------## Completion {{{2
 
 " Ignore case differences when searching for matches, e.g. if the word so far
 " is 'fort', and 'Fortunately' has been typed previously, complete 'fort' to
@@ -210,7 +221,7 @@ set ignorecase
 " complete 'fort' to 'fortunately'.
 set infercase
 
-"------## Indentation
+"------## Indentation {{{2
 
 " When <TAB> key is pressed, insert spaces instead of a tab.
 set expandtab
@@ -226,7 +237,7 @@ set softtabstop=4
 
 
 "------------------------------------------------------------------------------
-"---# File System
+"---# File System {{{1
 
 " When a file has been detected to have been changed outside of Vim and it has
 " not been changed inside of Vim, automatically read it again.
@@ -238,19 +249,19 @@ set autowriteall
 
 
 "------------------------------------------------------------------------------
-"---# Mappings
+"---# Mappings {{{1
 
 " Map keystrokes to commands
 
 let mapleader = ','
 
-"------## Movements
+"------## Movements {{{2
 
 " Treat visual lines as literal lines.
 nmap j gj
 nmap k gk
 
-"------## Tabs
+"------## Tabs {{{2
 
 " Switch to the tab with the specified number, using plug-in Airline.
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -265,14 +276,14 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 
-"------## File System
+"------## File System {{{2
 
 " Toggle the visibility of the file system tree side-window, using plug-in
 " NERDTree..
 nmap <leader>t :NERDTreeToggle<cr>
 
-" Quickly open .vimrc
-nmap <leader>ev :tabedit $MYVIMRC<cr>
+" Quickly open .vimrc in new tab
+nmap <leader>ev :tabedit $HOME/.dotfiles/vim/.vimrc<cr>
 
 " Save files as superuser with sudo.
 cmap w!! write !sudo tee > /dev/null %

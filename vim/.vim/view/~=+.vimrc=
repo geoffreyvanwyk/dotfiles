@@ -74,7 +74,7 @@ setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=marker
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -83,7 +83,7 @@ setlocal formatoptions=jcroql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
-setlocal imsearch=2
+setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
 setlocal indentexpr=GetVimIndent()
@@ -139,79 +139,25 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-silent! normal! zE
-12,19fold
-21,31fold
-33,36fold
-38,55fold
-57,65fold
-67,74fold
-76,82fold
-84,91fold
-6,93fold
-97,109fold
-111,114fold
-116,119fold
-95,119fold
-2,119fold
-131,138fold
-140,147fold
-129,147fold
-123,147fold
-123,147fold
-162,177fold
-151,177fold
-181,195fold
-201,211fold
-213,225fold
-199,225fold
-229,237fold
-247,251fold
-253,266fold
-268,278fold
-241,278fold
 2
 normal! zo
-6
+98
 normal! zo
-6
-normal! zc
-95
-normal! zo
-95
+98
 normal! zc
 2
 normal! zc
-123
+248
 normal! zo
-123
-normal! zo
-129
-normal! zo
-129
+248
 normal! zc
-123
-normal! zc
-123
-normal! zc
-151
-normal! zo
-151
-normal! zc
-199
-normal! zo
-199
-normal! zc
-241
-normal! zo
-241
-normal! zc
-let s:l = 1 - ((0 * winheight(0) + 30) / 60)
+let s:l = 2 - ((1 * winheight(0) + 30) / 60)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2
 normal! 0
+lcd ~/.dotfiles/vim
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
