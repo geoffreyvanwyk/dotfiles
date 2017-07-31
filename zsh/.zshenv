@@ -1,44 +1,52 @@
-#------------------------------------------------------------------------------
-# Environment Variables
-#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------ 
+#---# Environment Variables
 
-#---Execution Path-------------------------------------------------------------
+#------## General
 
+# Default text editor.
+# In Bash/Zsh, it can be started with <C-X><C-E>.
+export EDITOR="gvim"
 
-# PHP Package Manager: Composer
-if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
-    export PATH=$HOME/.config/composer/vendor/bin:$PATH
-fi
+#------## Colored Man Pages
 
-# Node.js Package Manager: NPM
-if [[ ":$PATH:" != *":${HOME}/.npm_global/bin:"* ]]; then
-    export PATH=$HOME/.npm_global/bin:$PATH
-fi
+# In order for the colored-man-pages plugin to work, this variable has to be set
+# to 1. It is used by the grotty program. See `man grotty`.
+export GROFF_NO_SGR=1
 
-# Node.js Version Manager: N
-if [[ ":$PATH:" != *":${HOME}/.n/bin:"* ]]; then
-    export PATH=$HOME/.n/bin:$PATH
-fi
+#------## Cryptography
+
+export GPGKEY=127ED2EB
+
+#------## Execution Path
+
+#---------### General
 
 if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
     export PATH=$HOME/bin:$PATH
 fi
 
-#---Node.js Version Manager----------------------------------------------------
+#---------### PHP Package Manager: Composer
+if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
+    export PATH=$HOME/.config/composer/vendor/bin:$PATH
+fi
+
+#---------### Node.js 
+
+#------------#### Package Manager: NPM
+if [[ ":$PATH:" != *":${HOME}/.npm_global/bin:"* ]]; then
+    export PATH=$HOME/.npm_global/bin:$PATH
+fi
+
+#------------#### Version Manager: N
+if [[ ":$PATH:" != *":${HOME}/.n/bin:"* ]]; then
+    export PATH=$HOME/.n/bin:$PATH
+fi
 
 export N_PREFIX=$HOME/.n
 
-#---Cryptography---------------------------------------------------------------
+#------## Python
 
-export GPGKEY=127ED2EB
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV=$WORKON_HOME
 
-#---GitLab---------------------------------------------------------------------
-
-export GITLAB_API_ENDPOINT=https://gitlab.com/api/v3
-export GITLAB_API_PRIVATE_TOKEN=eykmYXxy4JpNd68u9z3k
-
-#---Colored Man Pages------------------------------------------------------------
-
-# In order for the colored-man-pages plugin to work, this variable has to be set
-# to 1. It is used by the grotty program. See `man grotty`.
-export GROFF_NO_SGR=1
