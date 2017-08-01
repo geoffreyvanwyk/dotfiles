@@ -71,3 +71,9 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
+#------------------------------------------------------------------------------ 
+#---# Fonts
+
+# Enable awesome terminal fonts
+source $HOME/.fonts/*.sh
+
