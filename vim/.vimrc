@@ -121,6 +121,14 @@ let g:ctrlp_show_hidden = 1
 " Autoindent when pressing enter inside a delimiting pair.
 let g:delimitMate_expand_cr = 1
 
+"---------### Plug-in: NERDTree {{{3
+
+" Display bookmarks table.
+let NERDTreeShowBookmarks=1
+
+" Show hidden files and directories.
+let NERDTreeShowHidden=1
+
 "---------### Plug-in: Neocomplete {{{3
 
 " Start Neocomplete when Vim starts
