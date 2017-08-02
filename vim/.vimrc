@@ -123,12 +123,12 @@ let g:necomplete#enable_at_startup=1
 
 "---------### Plug-in: Startify {{{3
 
-let g:startify_bookmarks = [ 
-    '$HOME/.dotfiles/vim/.vimrc', 
-    '$HOME/.dotfiles/zsh/.zshrc', 
-    '$HOME/.dotfiles/zsh/.zshenv',
-    '$HOME/.dotfiles/tmux/.tmux.conf'
-]
+let g:startify_bookmarks = [
+            \'$HOME/.dotfiles/vim/.vimrc',
+            \'$HOME/.dotfiles/zsh/.zshrc',
+            \'$HOME/.dotfiles/zsh/.zshenv',
+            \'$HOME/.dotfiles/tmux/.tmux.conf'
+            \]
 
 
 "-----------------------------------------------------------------------------
