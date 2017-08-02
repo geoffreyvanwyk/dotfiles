@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------ 
-#---# Aliases
+#---# Aliases {{{1
 
 alias artisan=./artisan
 alias mux=tmuxinator
@@ -13,7 +13,7 @@ alias xdebug-on='sudo phpenmod -s cli xdebug'
 alias xdebug-off='sudo phpdismod -s cli xdebug'
 
 #------------------------------------------------------------------------------ 
-#---# Antigen
+#---# Antigen {{{1
 
 source ~/.antigen/antigen.zsh
 
@@ -40,13 +40,13 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
 #------------------------------------------------------------------------------ 
-#---# Tmuxinator
+#---# Tmuxinator {{{1
 
 # Completions
 source $HOME/bin/tmuxinator.zsh
 
 #------------------------------------------------------------------------------ 
-#---# Tilix Terminal Emulator 
+#---# Tilix Terminal Emulator {{{1
 
 # The reason for this is explained here: 
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
@@ -55,7 +55,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 #------------------------------------------------------------------------------ 
-#---# Python
+#---# Python {{{1
 
 source /home/systemovich/.local/bin/virtualenvwrapper.sh
 
@@ -72,7 +72,7 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 
 #------------------------------------------------------------------------------ 
-#---# Fonts
+#---# Fonts {{{1
 
 # Enable awesome terminal fonts
 source $HOME/.fonts/*.sh

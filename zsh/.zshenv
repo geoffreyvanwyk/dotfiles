@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------ 
-#---# Environment Variables
+#---# Environment Variables {{{1
 
-#------## General
+#------## General {{{2
 
 # Default text editor.
 # In Bash/Zsh, it can be started with <C-X><C-E>.
@@ -11,50 +11,50 @@ export EDITOR="gvim"
 # segment.
 export DEFAULT_USER=systemovich
 
-#------## Colored Man Pages
+#------## Colored Man Pages {{{2
 
 # In order for the colored-man-pages plugin to work, this variable has to be
 # set to 1. It is used by the grotty program. See `man grotty`.
 export GROFF_NO_SGR=1
 
-#------## Cryptography
+#------## Cryptography {{{2
 
 export GPGKEY=127ED2EB
 
-#------## Execution Path
+#------## Execution Path {{{2
 
-#---------### General
+#---------### General {{{3
 
 if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
     export PATH=$HOME/bin:$PATH
 fi
 
-#---------### PHP Package Manager: Composer
+#---------### PHP Package Manager: Composer {{{3
 if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
     export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi
 
-#---------### Node.js 
+#---------### Node.js  {{{3
 
-#------------#### Package Manager: NPM
+#------------#### Package Manager: NPM {{{4
 if [[ ":$PATH:" != *":${HOME}/.npm_global/bin:"* ]]; then
     export PATH=$HOME/.npm_global/bin:$PATH
 fi
 
-#------------#### Version Manager: N
+#------------#### Version Manager: N {{{4
 if [[ ":$PATH:" != *":${HOME}/.n/bin:"* ]]; then
     export PATH=$HOME/.n/bin:$PATH
 fi
 
 export N_PREFIX=$HOME/.n
 
-#------## Python
+#------## Python {{{2
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV=$WORKON_HOME
 
-#------## Prompt
+#------## Prompt {{{2
 
 export POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-bhilburn-SLASH-powerlevel9k.git
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh root_indicator context dir dir_writable virtualenv vcs)
