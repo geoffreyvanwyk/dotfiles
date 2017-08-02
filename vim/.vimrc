@@ -111,6 +111,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
 
+"---------### Plug-in: CtrlP {{{3
+
+" Show hidden files and folders.
+let g:ctrlp_show_hidden = 1
+
 "---------### Plug-in: DelimitMate {{{3
 
 " Autoindent when pressing enter inside a delimiting pair.
