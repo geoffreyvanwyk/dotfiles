@@ -265,6 +265,9 @@ set autoread
 " Automatically save a buffer when switching to another buffer.
 set autowriteall
 
+" Prevent creation of swap files (*.swp).
+set noswapfile
+
 
 "------------------------------------------------------------------------------
 "---# Mappings {{{1
