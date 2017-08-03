@@ -81,6 +81,12 @@ Plug 'StanAngeloff/php.vim'
 " Improved omnicompletion for PHP
 Plug 'shawncplus/phpcomplete.vim'
 
+" Easily work with namespaces:
+" - Insert 'use' statements automatically.
+" - Sort 'use' statements alphabetically.
+" - Expand to fully qualified names.
+Plug 'arnaud-lb/vim-php-namespace'
+
 "---------### Version Control {{{3
 
 " A Vim user interface for Git
@@ -133,6 +139,10 @@ let NERDTreeShowHidden=1
 
 " Start Neocomplete when Vim starts
 let g:necomplete#enable_at_startup=1
+
+"---------### Plug-in: PHP Namespace {{{3
+
+let g:php_namespace_sort_after_insert = 1
 
 "---------### Plug-in: Startify {{{3
 
@@ -217,6 +227,22 @@ augroup editing
     autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
+augroup filetype_php
+    autocmd!
+
+    "  Insert 'use' statements automatically, using PHP Namespace plugin.
+    autocmd FileType php inoremap <leader>u <esc>:call IPhpInsertUse()<cr>
+    autocmd FileType php noremap <leader>u :call PhpInsertUse()<cr>
+
+    " Sort 'use' statements automatcally, using PHP Namespace plugin.
+    autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
+    autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
+
+    " Expand to fully qualified names, using PHP Namespace plugin.
+    autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+augroup END
+
 
 "------------------------------------------------------------------------------
 "---# Editing {{{1
@@ -261,6 +287,24 @@ set autowriteall
 
 " Prevent creation of swap files (*.swp).
 set noswapfile
+
+
+"------------------------------------------------------------------------------
+"---# Functions {{{1
+
+"------## Plug-in: PHP Namespace {{{2
+
+" Insert 'use' statements automatically.
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+
+" Expand to fully qualified names.
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
 
 
 "------------------------------------------------------------------------------
