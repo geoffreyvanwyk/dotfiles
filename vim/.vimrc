@@ -303,6 +303,9 @@ nmap <leader>= <Plug>AirlineSelectNextTab
 " NERDTree..
 nmap <leader>t :NERDTreeToggle<cr>
 
+" Find the current file in the tree.
+nmap <leader>tf :NERDTreeFind<cr>
+
 " Quickly open .vimrc in new tab
 nmap <leader>ev :tabedit $HOME/.dotfiles/vim/.vimrc<cr>
 
