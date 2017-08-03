@@ -214,7 +214,7 @@ endif
 augroup autocommands
     autocmd!
     " Automatically delete trailing spaces before saving buffer
-    autocmd BufWritePre <buffer> :%s/\s\+$//e
+    autocmd BufWritePre * :%s/\s\+$//e
 
     " Save folds in .vimrc file.
     autocmd BufWrite $HOME/.vimrc mkview
