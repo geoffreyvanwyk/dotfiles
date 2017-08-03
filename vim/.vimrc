@@ -78,8 +78,8 @@ Plug 'elzr/vim-json'
 " Up-to-date PHP syntax highlighting (5.3 - 7.1)
 Plug 'StanAngeloff/php.vim'
 
-" Autocompletion for PHP
-" Plug 'shawncplus/phpcomplete.vim'
+" Improved omnicompletion for PHP
+Plug 'shawncplus/phpcomplete.vim'
 
 "---------### Version Control {{{3
 
