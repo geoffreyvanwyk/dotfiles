@@ -211,16 +211,10 @@ endif
 
 " Define commands to be automatically executed when certain events occur.
 
-augroup autocommands
+augroup editing
     autocmd!
     " Automatically delete trailing spaces before saving buffer
     autocmd BufWritePre * :%s/\s\+$//e
-
-    " Save folds in .vimrc file.
-    autocmd BufWrite $HOME/.vimrc mkview
-
-    " Load folds in .vimrc file.
-    autocmd BufRead $HOME/.vimrc silent loadview
 augroup END
 
 
