@@ -339,7 +339,7 @@ nmap <leader>= <Plug>AirlineSelectNextTab
 
 " Toggle the visibility of the file system tree side-window, using plug-in
 " NERDTree..
-nmap <leader>t :NERDTreeToggle<cr>
+nmap <leader>tt :NERDTreeToggle<cr>
 
 " Find the current file in the tree.
 nmap <leader>tf :NERDTreeFind<cr>
