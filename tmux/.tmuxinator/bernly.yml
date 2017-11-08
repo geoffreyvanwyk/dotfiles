@@ -1,7 +1,7 @@
-# ~/.tmuxinator/ghost.yml
+# ~/.tmuxinator/bernly.yml
 
-name: ghost
-root: ~/src/my/ghost_themes
+name: bernly
+root: ~/src/my/bernly/
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,10 +28,10 @@ root: ~/src/my/ghost_themes
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t ghost
+# post: tmux -CC attach -t bernly
 
 windows:
-  - main:
-  - server: npm start
-  - git: git status
-  - npm: 
+  - shell:
+  - repl: artisan tinker
+  - testing: vendor/bin/phpunit
+  - version-control: tig
