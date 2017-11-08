@@ -64,6 +64,16 @@ Plug 'scrooloose/nerdtree'
 " Vim.
 Plug 'ctrlpvim/ctrlp.vim'
 
+"---------### Source Navigation {{{3
+
+" Manages tag files.
+Plug 'ludovicchabant/vim-gutentags'
+
+"---------### Syntax Checking {{{3
+
+" Syntax checker for multiple languages.
+Plug 'scrooloose/syntastic'
+
 "---------### Language: JavaScript {{{3
 
 " JSON syntax highlighting.
@@ -86,6 +96,11 @@ Plug 'shawncplus/phpcomplete.vim'
 " - Sort 'use' statements alphabetically.
 " - Expand to fully qualified names.
 Plug 'arnaud-lb/vim-php-namespace'
+
+"---------### Searching {{{3
+
+" Search for text in the files in current directory and subdirectories.
+Plug 'mileszs/ack.vim'
 
 "---------### Version Control {{{3
 
