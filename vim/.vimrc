@@ -202,6 +202,9 @@ iabbrev bh6 #------------------######
 
 colorscheme janah
 
+" Highlight the 80th column.
+set colorcolumn=80
+
 " Highlight the line on which the cursor is currently
 set cursorline
 
