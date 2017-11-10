@@ -30,6 +30,11 @@ Plug 'mhinz/vim-janah'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+"---------### Buffers {{{3
+
+" Delete a buffer without closing its window.
+Plug 'moll/vim-bbye'
+
 "---------### Debugging {{{3
 
 " Multilanguage debugger client (PHP, Python, Perl, Ruby, etc.)
@@ -337,6 +342,10 @@ let mapleader = ','
 " Treat visual lines as literal lines.
 nmap j gj
 nmap k gk
+
+"------## Buffers {{{2
+
+nnoremap <leader>bd :Bdelete<cr>
 
 "------## Tabs {{{2
 
