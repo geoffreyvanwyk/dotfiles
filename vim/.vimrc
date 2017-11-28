@@ -88,6 +88,15 @@ Plug 'scrooloose/syntastic'
 " Warns about invalid syntax.
 Plug 'elzr/vim-json'
 
+"---------### Language: Markdown {{{3
+
+" Text filtering and alignment. Dependency for 'plasticboy/vim-markdown'.
+Plug 'godlygeek/tabular'
+
+" Syntax highlighting, matching rules and mappings for the original Markdown
+" and extensions.
+Plug 'plasticboy/vim-markdown'
+
 "---------### Language: PHP {{{3
 
 " Up-to-date PHP syntax highlighting (5.3 - 7.1)
