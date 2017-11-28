@@ -358,6 +358,8 @@ nmap k gk
 "------## Buffers {{{2
 
 nnoremap <leader>bd :Bdelete<cr>
+nnoremap <leader>bp :bp<cr>
+nnoremap <leader>bn :bn<cr>
 
 "------## Tabs {{{2
 
