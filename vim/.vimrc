@@ -111,6 +111,9 @@ Plug 'shawncplus/phpcomplete.vim'
 " - Expand to fully qualified names.
 Plug 'arnaud-lb/vim-php-namespace'
 
+" Syntax hightlighting for Laravel Blade templating engine.
+Plug 'jwalton512/vim-blade'
+
 "---------### Searching {{{3
 
 " Search for text in the files in current directory and subdirectories.
