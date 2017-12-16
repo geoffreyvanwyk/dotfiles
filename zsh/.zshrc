@@ -34,10 +34,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
-antigen theme bhilburn/powerlevel9k powerlevel9k 
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship 
 
 # Tell antigen that you're done.
-antigen apply
+antigen apply 
 
 #------------------------------------------------------------------------------ 
 #---# Tmuxinator {{{1
