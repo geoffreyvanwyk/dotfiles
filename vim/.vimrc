@@ -30,6 +30,11 @@ Plug 'mhinz/vim-janah'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+"---------### Buffers {{{3
+
+" Delete a buffer without closing its window.
+Plug 'moll/vim-bbye'
+
 "---------### Debugging {{{3
 
 " Multilanguage debugger client (PHP, Python, Perl, Ruby, etc.)
@@ -83,6 +88,15 @@ Plug 'scrooloose/syntastic'
 " Warns about invalid syntax.
 Plug 'elzr/vim-json'
 
+"---------### Language: Markdown {{{3
+
+" Text filtering and alignment. Dependency for 'plasticboy/vim-markdown'.
+Plug 'godlygeek/tabular'
+
+" Syntax highlighting, matching rules and mappings for the original Markdown
+" and extensions.
+Plug 'plasticboy/vim-markdown'
+
 "---------### Language: PHP {{{3
 
 " Up-to-date PHP syntax highlighting (5.3 - 7.1)
@@ -96,6 +110,9 @@ Plug 'shawncplus/phpcomplete.vim'
 " - Sort 'use' statements alphabetically.
 " - Expand to fully qualified names.
 Plug 'arnaud-lb/vim-php-namespace'
+
+" Syntax hightlighting for Laravel Blade templating engine.
+Plug 'jwalton512/vim-blade'
 
 "---------### Searching {{{3
 
@@ -201,6 +218,9 @@ iabbrev bh6 #------------------######
 "---# Appearance {{{1
 
 colorscheme janah
+
+" Highlight the 80th column.
+set colorcolumn=80
 
 " Highlight the line on which the cursor is currently
 set cursorline
@@ -334,6 +354,12 @@ let mapleader = ','
 " Treat visual lines as literal lines.
 nmap j gj
 nmap k gk
+
+"------## Buffers {{{2
+
+nnoremap <leader>bd :Bdelete<cr>
+nnoremap <leader>bp :bp<cr>
+nnoremap <leader>bn :bn<cr>
 
 "------## Tabs {{{2
 
