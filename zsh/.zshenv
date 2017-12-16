@@ -1,4 +1,4 @@
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Environment Variables {{{1
 
 #------## General {{{2
@@ -10,6 +10,8 @@ export EDITOR="gvim"
 # Used by powerlevel9k prompt to determine whether to include the context
 # segment.
 export DEFAULT_USER=systemovich
+
+export TERM=xterm-256color
 
 #------## Colored Man Pages {{{2
 
@@ -59,7 +61,7 @@ export PIP_VIRTUALENV=$WORKON_HOME
 export POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-bhilburn-SLASH-powerlevel9k.git
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh root_indicator context dir dir_writable virtualenv vcs)
 export POWERLEVEL9K_MODE='awesome-fontconfig'
-export POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=$'\u2570'$'\u2500'$'\u2B24'"  " 
+export POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=$'\u2570'$'\u2500'$'\u2B24'"  "
 export POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 export POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 export POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
