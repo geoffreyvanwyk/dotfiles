@@ -32,6 +32,7 @@ root: ~/src/my/bernly/
 
 windows:
   - shell:
+  - editor: vim .
   - repl: artisan tinker
-  - testing: vendor/bin/phpunit
-  - version-control: tig
+  - tests: vendor/bin/phpunit
+  - versions: tig
