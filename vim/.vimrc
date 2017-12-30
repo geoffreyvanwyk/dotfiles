@@ -360,8 +360,8 @@ nnoremap <c-u> vawU
 "------## Movements {{{2
 
 " Treat visual lines as literal lines.
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 "------## Buffers {{{2
 
