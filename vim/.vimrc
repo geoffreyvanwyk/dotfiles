@@ -349,6 +349,14 @@ endfunction
 
 let mapleader = ','
 
+"------## Editing {{{2
+
+" Convert current word to uppercase in INSERT mode.
+inoremap <c-u> <esc>vawUi
+
+" Convert current word to uppercase in NORMAL mode.
+nnoremap <c-u> vawU
+
 "------## Movements {{{2
 
 " Treat visual lines as literal lines.
