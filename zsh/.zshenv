@@ -32,8 +32,8 @@ if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
 fi
 
 #---------### PHP Package Manager: Composer {{{3
-if [[ ":$PATH:" != *":${HOME}/.config/composer/vendor/bin:"* ]]; then
-    export PATH=$HOME/.config/composer/vendor/bin:$PATH
+if [[ ":$PATH:" != *":${HOME}/.composer/vendor/bin:"* ]]; then
+    export PATH=$HOME/.composer/vendor/bin:$PATH
 fi
 
 #---------### Node.js  {{{3
