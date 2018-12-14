@@ -13,6 +13,8 @@ export DEFAULT_USER=systemovich
 
 export TERM=xterm-256color
 
+export DISABLE_AUTO_TITLE=true
+
 #------## Colored Man Pages {{{2
 
 # In order for the colored-man-pages plugin to work, this variable has to be
@@ -29,6 +31,10 @@ export GPGKEY=127ED2EB
 
 if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
     export PATH=$HOME/bin:$PATH
+fi
+
+if [[ ":$PATH:" != *":/snap/bin:"* ]]; then
+    export PATH=/snap/bin:$PATH
 fi
 
 #---------### PHP Package Manager: Composer {{{3
