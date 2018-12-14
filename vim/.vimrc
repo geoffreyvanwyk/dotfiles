@@ -30,6 +30,10 @@ Plug 'mhinz/vim-janah'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+"---------### Applications {{{3
+
+Plug 'vimwiki/vimwiki'
+
 "---------### Buffers {{{3
 
 " Delete a buffer without closing its window.
