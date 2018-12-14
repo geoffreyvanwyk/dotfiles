@@ -4,6 +4,7 @@
 alias artisan=./artisan
 alias behat=./vendor/bin/behat
 alias console=./bin/console
+alias cat=bat
 alias mux=tmuxinator
 
 alias phinx='./vendor/bin/phinx'
@@ -12,6 +13,7 @@ alias phinxm='./vendor/bin/phinx migrate -e development'
 alias phinxr='./vendor/bin/phinx rollback -e development'
 
 alias phpunit='./vendor/bin/phpunit'
+
 alias xdebug-on='sudo phpenmod -s cli xdebug'
 alias xdebug-off='sudo phpdismod -s cli xdebug'
 
