@@ -1,4 +1,4 @@
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Aliases {{{1
 
 alias artisan=./artisan
@@ -17,7 +17,7 @@ alias phpunit='./vendor/bin/phpunit'
 alias xdebug-on='sudo phpenmod -s cli xdebug'
 alias xdebug-off='sudo phpdismod -s cli xdebug'
 
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Antigen {{{1
 
 source ~/.antigen/antigen.zsh
@@ -32,37 +32,44 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle colored-man-pages
-antigen bundle tmux
+
+if [[ $(hash tmux 2>/dev/null) ]]; then
+    antigen bundle tmux
+fi
 
 # Bundles from ZSH Users Organisation on GitHub
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship 
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 # Tell antigen that you're done.
-antigen apply 
+antigen apply
 
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Tmuxinator {{{1
 
 # Completions
-source $HOME/bin/tmuxinator.zsh
+if [[ -e $HOME/bin/tmuxinator.zsh  ]] then
+    source $HOME/bin/tmuxinator.zsh
+fi
 
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Tilix Terminal Emulator {{{1
 
-# The reason for this is explained here: 
+# The reason for this is explained here:
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Python {{{1
 
-source /home/systemovich/.local/bin/virtualenvwrapper.sh
+if [[ -e $HOME/.local/bin/virtualenvwrapper.sh ]] then
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
 
 # pip zsh completion start
 function _pip_completion {
@@ -76,9 +83,10 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-#------------------------------------------------------------------------------ 
+#------------------------------------------------------------------------------
 #---# Fonts {{{1
 
 # Enable awesome terminal fonts
-source $HOME/.fonts/*.sh
-
+if [[ -e $HOME/.fonts/*.sh ]] then
+    source $HOME/.fonts/*.sh
+fi
