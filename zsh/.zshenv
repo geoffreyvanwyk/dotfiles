@@ -27,6 +27,14 @@ export GPGKEY=127ED2EB
 
 #------## Execution Path {{{2
 
+#---------### Android Development {{{3
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 #---------### General {{{3
 
 if [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
