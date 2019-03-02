@@ -5,6 +5,7 @@ alias artisan=./artisan
 alias behat=./vendor/bin/behat
 alias console=./bin/console
 alias cat=bat
+alias lla='ls -ahl'
 alias mux=tmuxinator
 
 alias phinx='./vendor/bin/phinx'
