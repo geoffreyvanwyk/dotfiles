@@ -1,93 +1,16 @@
-#------------------------------------------------------------------------------
-#---# Aliases {{{1
+# Enter passphrase for SSH key
+SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
 
-alias artisan=./artisan
-alias behat=./vendor/bin/behat
-alias console=./bin/console
-alias cat=bat
-alias lla='ls -ahl'
-alias mux=tmuxinator
+# Initialise zulu plugin manager
+source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
+zulu init
 
-alias phinx='./vendor/bin/phinx'
-alias phinxs='./vendor/bin/phinx status -e development'
-alias phinxm='./vendor/bin/phinx migrate -e development'
-alias phinxr='./vendor/bin/phinx rollback -e development'
+fpath=($fpath "/home/geoffrey/.zfunctions")
 
-alias phpunit='./vendor/bin/phpunit'
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+spaceship_vi_mode_enable
 
-alias xdebug-on='sudo phpenmod -s cli xdebug'
-alias xdebug-off='sudo phpdismod -s cli xdebug'
-
-#------------------------------------------------------------------------------
-#---# Antigen {{{1
-
-source ~/.antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-antigen bundle colored-man-pages
-
-if [[ $(hash tmux 2>/dev/null) ]]; then
-    antigen bundle tmux
-fi
-
-# Bundles from ZSH Users Organisation on GitHub
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-
-# Load the theme.
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
-
-# Tell antigen that you're done.
-antigen apply
-
-#------------------------------------------------------------------------------
-#---# Tmuxinator {{{1
-
-# Completions
-if [[ -e $HOME/bin/tmuxinator.zsh  ]] then
-    source $HOME/bin/tmuxinator.zsh
-fi
-
-#------------------------------------------------------------------------------
-#---# Tilix Terminal Emulator {{{1
-
-# The reason for this is explained here:
-# https://gnunn1.github.io/tilix-web/manual/vteconfig/
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
-fi
-
-#------------------------------------------------------------------------------
-#---# Python {{{1
-
-if [[ -e $HOME/.local/bin/virtualenvwrapper.sh ]] then
-    source $HOME/.local/bin/virtualenvwrapper.sh
-fi
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-# pip zsh completion end
-
-#------------------------------------------------------------------------------
-#---# Fonts {{{1
-
-# Enable awesome terminal fonts
-if [[ -e $HOME/.fonts/*.sh ]] then
-    source $HOME/.fonts/*.sh
-fi
+# Initialize Tmux prefix highlight plugin
+~/.tmux/plugins/tmux-prefix-highlight/prefix_highlight.tmux
