@@ -23,6 +23,10 @@ Plug 'mhinz/vim-startify'
 
 "---------### Appearance {{{3
 
+" A 16 colorspace theme build to run in GUI and terminal mode with support for
+" many third-party plugins and styles for lightline.vim and vim-airline.
+Plug 'arcticicestudio/nord-vim'
+
 " Designed as a bright theme with pastel 'retro groove' colors and light/dark
 " mode switching in the way of solarized. The main focus when developing
 " gruvbox is to keep colors easily distinguishable, contrast enough and still
