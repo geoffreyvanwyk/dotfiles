@@ -20,6 +20,10 @@ Plug 'mhinz/vim-startify'
 
 "---------### Appearance {{{3
 
+" A 16 colorspace theme build to run in GUI and terminal mode with support for
+" many third-party plugins and styles for lightline.vim and vim-airline.
+Plug 'arcticicestudio/nord-vim'
+
 " A dark color scheme
 Plug 'mhinz/vim-janah'
 
@@ -75,8 +79,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 "---------### Source Navigation {{{3
 
-" Manages tag files.
-Plug 'ludovicchabant/vim-gutentags'
 
 "---------### Syntax Checking {{{3
 
@@ -141,7 +143,7 @@ call plug#end()
 
 "---------### Plug-in: Airline {{{3
 
-let g:airline_theme='bubblegum'
+let g:airline_theme='nord'
 
 " Use powerline symbols
 let g:airline_powerline_fonts = 1
@@ -221,7 +223,7 @@ iabbrev bh6 #------------------######
 "------------------------------------------------------------------------------
 "---# Appearance {{{1
 
-colorscheme janah
+colorscheme nord
 
 " Highlight the 80th column.
 set colorcolumn=80
