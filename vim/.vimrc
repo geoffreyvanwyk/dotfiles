@@ -11,6 +11,9 @@ call plug#begin('~/.vim/plugged') " Directory into which plug-ins are cloned.
 
 "---------### General {{{3
 
+" Yet Another Remote Plugin Framework
+Plug 'roxma/nvim-yarp'
+
 " A universal set of defaults that everyone can agree on.
 Plug 'tpope/vim-sensible'
 
@@ -20,8 +23,19 @@ Plug 'mhinz/vim-startify'
 
 "---------### Appearance {{{3
 
+" Designed as a bright theme with pastel 'retro groove' colors and light/dark
+" mode switching in the way of solarized. The main focus when developing
+" gruvbox is to keep colors easily distinguishable, contrast enough and still
+" pleasant for the eyes.
+Plug 'morhetz/gruvbox'
+
 " A dark color scheme
 Plug 'mhinz/vim-janah'
+
+" Nord Vim is a 16 colorspace theme build to run in GUI- and terminal mode
+" with support for many third-party plugins and styles for lightline.vim and
+" vim-airline.
+Plug 'arcticicestudio/nord-vim'
 
 " Improved status line that looks better and displays more information such as
 " - current Git branch with the number of lines added, modified, and removed;
@@ -29,6 +43,9 @@ Plug 'mhinz/vim-janah'
 " - warnings about trailing whitespace and mixture of tabs and spaces.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Simple indentation guides for your buffers
+Plug 'thaerkh/vim-indentguides'
 
 "---------### Applications {{{3
 
@@ -46,6 +63,9 @@ Plug 'joonty/vdebug'
 
 "---------### Editing {{{3
 
+" Read or write files with `sudo` command
+Plug 'lambdalisue/suda.vim'
+
 " Keyboard shortcuts for quickly adding, changing, or removing parentheses,
 " braces, quotes, brackets, and XML/HTML tags around text.
 Plug 'tpope/vim-surround'
@@ -58,10 +78,23 @@ Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
 
 " Autocompletion for text, file system paths,etc.
-Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 
 " Commands for quickly commenting source code.
 Plug 'scrooloose/nerdcommenter'
+
+" Neovim Completion Manager - Fast, asynchronous completion framework that
+" supports multiple languages
+Plug 'ncm2/ncm2'
+
+" Completion sources for Neovim Completion Manager
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+
+Plug 'autozimu/LanguageClient-neovim', {
+\   'branch': 'next',
+\   'do': 'bash install.sh'
+\}
 
 "---------### File System {{{3
 
@@ -75,8 +108,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 "---------### Source Navigation {{{3
 
-" Manages tag files.
-Plug 'ludovicchabant/vim-gutentags'
 
 "---------### Syntax Checking {{{3
 
@@ -101,7 +132,22 @@ Plug 'godlygeek/tabular'
 " and extensions.
 Plug 'plasticboy/vim-markdown'
 
+" Preview markdown files in the web browser
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+"---------### Language: Mustache {{{3
+
+" Syntax highlighting, matchit support, section movement support, and text
+" objects for Mustache and Handlebars templates.
+Plug 'mustache/vim-mustache-handlebars'
+
 "---------### Language: PHP {{{3
+
+" Language Server for PHP: Provides autocompletion, go-to-definition, and
+" documentation.
+Plug 'roxma/LanguageServer-php-neovim', {
+\    'do': 'composer install && composer run-script parse-stubs'
+\}
 
 " Up-to-date PHP syntax highlighting (5.3 - 7.1)
 Plug 'StanAngeloff/php.vim'
@@ -137,11 +183,13 @@ Plug 'gregsexton/gitv', {'on': 'Gitv'}
 
 call plug#end()
 
+set notermguicolors
+
 "------## Configuration {{{2
 
 "---------### Plug-in: Airline {{{3
 
-let g:airline_theme='bubblegum'
+let g:airline_theme='nord'
 
 " Use powerline symbols
 let g:airline_powerline_fonts = 1
@@ -158,10 +206,25 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 " Show hidden files and folders.
 let g:ctrlp_show_hidden = 1
 
+" Default opening command to use.
+let g:ctrl_cmd = 'CtrlPBuffer'
+
 "---------### Plug-in: DelimitMate {{{3
 
 " Autoindent when pressing enter inside a delimiting pair.
 let g:delimitMate_expand_cr = 1
+
+"---------### Plug-in: Markdown {{{3
+
+" Disable syntax concealment, because it does not work properly
+let g:vim_markdown_conceal = 0
+
+"---------### Plug-in: Markdown Preview {{{3
+
+
+" Open preview window after entering markdown buffer
+let g:mkdp_auto_start=1
+
 
 "---------### Plug-in: NERDTree {{{3
 
@@ -220,8 +283,11 @@ iabbrev bh6 #------------------######
 
 "------------------------------------------------------------------------------
 "---# Appearance {{{1
+"
+" Show line numbers
+set nu
 
-colorscheme janah
+colorscheme nord
 
 " Highlight the 80th column.
 set colorcolumn=80
@@ -240,13 +306,19 @@ set foldmethod=marker
 "------## GUI Options {{{2
 
 " Hide the menu bar.
-set guioptions -=m
+if has("gui_running")
+    set guioptions -=m
+endif
 
 " Hide the toolbar.
-set guioptions -=T
+if has("gui_running")
+    set guioptions -=T
+endif
 
 " Never show lefthand scrollbar.
-set guioptions -=L
+if has("gui_running")
+    set guioptions -=L
+endif
 
 " Set font to be used in GVim.
 " Font for Vim (commandline version) is determined by the terminal emulator.
@@ -264,6 +336,9 @@ augroup editing
     autocmd!
     " Automatically delete trailing spaces before saving buffer
     autocmd BufWritePre * :%s/\s\+$//e
+
+    " Enable Neovim Completion Manager for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
 augroup END
 
 augroup filetype_php
@@ -297,6 +372,9 @@ set ignorecase
 " the word so far is 'fort', and 'Fortunately' has been typed previously,
 " complete 'fort' to 'fortunately'.
 set infercase
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 "------## Indentation {{{2
 
@@ -360,6 +438,8 @@ inoremap <c-u> <esc>vawUi
 
 " Convert current word to uppercase in NORMAL mode.
 nnoremap <c-u> vawU
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
 "------## Movements {{{2
 
