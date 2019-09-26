@@ -1,16 +1,20 @@
-# Enter passphrase for SSH key
-SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
+#------------------------------------------------------------------------------
+#---# Aliases {{{1
 
-# Initialise zulu plugin manager
-source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
-zulu init
+alias ls="ls --color=auto"
 
-fpath=($fpath "/home/geoffrey/.zfunctions")
+#------------------------------------------------------------------------------
+#---# Prompt {{{1
 
 # Set Spaceship ZSH as a prompt
+fpath=($fpath "/home/geoffrey/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship
 spaceship_vi_mode_enable
 
-# Initialize Tmux prefix highlight plugin
-~/.tmux/plugins/tmux-prefix-highlight/prefix_highlight.tmux
+#------------------------------------------------------------------------------
+#---# JavaScript {{{1
+
+#------## FNM - Fast Node.js Version Manager
+
+eval "`fnm env --multi`"
