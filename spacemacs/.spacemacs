@@ -578,9 +578,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq powerline-default-separator 'slant)
-  (global-git-commit-mode t)
+  (setq global-git-commit-mode t)
   (setq magit-repository-directories '("~/Sources/**/"))
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "M-RET")
+                'spacemacs/helm-navigation-transient-state/body))
 )
 
 
