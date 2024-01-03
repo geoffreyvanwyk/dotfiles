@@ -41,7 +41,7 @@ This function should only modify configuration layer settings."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      helm
      ;; lsp
      ;; markdown
@@ -52,7 +52,9 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-global-margin t)
      treemacs)
 
 
@@ -551,6 +553,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq-default git-magit-status-fullscreen t)
 )
 
 
@@ -569,6 +572,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq powerline-default-separator 'slant)
+  (global-git-commit-mode t)
+  (setq magit-repository-directories '("~/Sources/**/"))
 )
 
 
