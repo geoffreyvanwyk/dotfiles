@@ -38,15 +38,79 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t)
      ;; better-defaults
+     (clojure :variables
+              cider-overlays-use-font-lock t
+              cider-pprint-fn 'fipp                   ;; Fast pretty printing.
+              cider-repl-buffer-size-limit 100        ;; Number of lines. To conserve performance.
+              cider-repl-display-help-banner nil
+              cider-result-overlay-position 'at-point ;; Display result below expression.
+              clojure-align-forms-automatically t
+              clojure-enable-fancy-symbols t
+              clojure-enable-kaocha-runner t          ;; Test runner.
+              clojure-indent-style 'align-arguments
+              clojure-toplevel-inside-comment-form t) ;; Evaluate expressions in comment as top-level.
      emacs-lisp
-     git
+     (git :variables
+          git-magit-status-fullscreen t
+          magit-diff-refine-hunk t
+          git-enable-magit-todos-plugin t)
      helm
-     ;; lsp
-     ;; markdown
+     (lsp :variables
+          ;; Formatting and indentation
+          lsp-enable-on-type-formatting t
+          lsp-enable-indentation t
+          lsp-enable-snippet t
+
+          lsp-enable-symbol-highlighting t
+
+          ;; popup documentation
+          lsp-ui-doc-enable t               ;; documentation popups
+          lsp-ui-doc-show-with-cursor nil   ;; doc popup triggered by cursor
+          lsp-ui-doc-show-with-mouse nil    ;; doc popup triggered by mouse
+          lsp-ui-doc-delay 1                ;; delay in seconds for popup to display
+          lsp-ui-doc-include-signature t    ;; include function signature
+          ;; lsp-ui-doc-position 'top       ;; top bottom at-point
+          ;; lsp-ui-doc-alignment 'window   ;; frame window
+
+          ;; code actions and diagnostics text as right-hand side of buffer
+          lsp-ui-sideline-enable nil
+          lsp-ui-sideline-show-code-actions nil
+          ;; lsp-ui-sideline-delay 500
+          ;; lsp-ui-sideline-show-diagnostics nil
+
+          ;; function reference count and test coverage
+          lsp-lens-enable t
+
+          ;; Efficient use of space in treemacs-lsp display
+          treemacs-space-between-root-nodes nil
+
+          ;; Optimization for large files
+          lsp-file-watch-threshold 10000
+          lsp-log-io nil)
+     markdown
      multiple-cursors
-     ;; org
+     (org :variables
+          org-enable-github-support t
+          org-enable-bootstrap-support t
+          org-enable-reveal-js-support t
+          org-want-todo-bindings t
+          org-enable-org-journal-support t
+          org-journal-dir "~/projects/journal/"
+          org-journal-file-format "%Y-%m-%d"
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-date-format "%A, %B %d %Y"
+          org-journal-time-prefix "* "
+          org-journal-time-format ""
+          org-journal-carryover-items "TODO=\"TODO\"|TODO=\"DOING\"|TODO=\"BLOCKED\"|TODO=\"REVIEW\""
+
+          ;; org-enable-jira-support t
+          ;; jiralib-url "https://org-domain.atlassian.net:443"
+          )
      (spacemacs-modeline :variables
                          doom-modeline-height 12
                          doom-modeline-major-mode-color-icon t
@@ -54,15 +118,21 @@ This function should only modify configuration layer settings."
                          doom-modeline-display-default-persp-name t
                          doom-modeline-minor-modes nil
                          doom-modeline-modal-icon nil)
+     (spacemacs-layouts :variables
+                        spacemacs-layouts-restrict-spc-tab t
+                        persp-autokill-buffer-on-remove 'kill-weak)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
+     spell-checking
+     syntax-checking
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-global-margin t)
-     treemacs)
+     treemacs
+     (unicode-fonts :variables
+                    unicode-fonts-enable-ligatures t
+                    unicode-fonts-ligature-modes '(prog-mode)))
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -560,7 +630,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (setq-default git-magit-status-fullscreen t)
 )
 
 
@@ -569,7 +638,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
 dump."
-)
+  )
 
 
 (defun dotspacemacs/user-config ()
