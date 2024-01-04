@@ -56,9 +56,10 @@ This function should only modify configuration layer settings."
               clojure-toplevel-inside-comment-form t) ;; Evaluate expressions in comment as top-level.
      emacs-lisp
      (git :variables
+          git-enable-magit-todos-plugin t
           git-magit-status-fullscreen t
           magit-diff-refine-hunk t
-          git-enable-magit-todos-plugin t)
+          magit-repository-directories '("~/Sources/**/"))
      helm
      (lsp :variables
           ;; Formatting and indentation
@@ -647,11 +648,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq global-git-commit-mode t)
-  (setq magit-repository-directories '("~/Sources/**/"))
+  (setq global-git-commit-mode t) ;; Edit commit messages with Spacemacs.
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "M-RET")
                 'spacemacs/helm-navigation-transient-state/body))
+  (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 )
 
 
