@@ -1,0 +1,8 @@
+werkstatt:
+  hosts:
+    - 127.0.0.1
+  vars:
+    ansible_connection: local
+    ansible_user: werker
+    ansible_password: nullfehler
+    ansible_become_password: nullfehler
