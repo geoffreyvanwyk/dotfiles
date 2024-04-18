@@ -1,0 +1,35 @@
+---
+- name: Git for Version Control of Source Code 
+  hosts: all
+
+  tasks:
+    - name: Set name of default branch
+      ansible.builtin.git_config:
+        scope: global
+        name: init.defaultBranch
+        value: master
+
+    - name: Set user name
+      ansible.builtin.git_config:
+        scope: global
+        name: user.name
+        value: Geoffrey Bernardo van Wyk
+
+    - name: Set user email address
+      ansible.builtin.git_config:
+        scope: global
+        name: user.email
+        value: geoffrey@vanwyk.biz 
+
+- name: Home Directories
+  hosts: all
+
+  tasks:
+    - name: Create top-level home directories
+      loop:
+        - learn
+        - src/my
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+
