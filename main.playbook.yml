@@ -50,7 +50,7 @@
     - name: Deploy tmuxinator project files for dotfiles
       loop:
         - dotfiles
-        - dot.nvim
+        - dot-nvim
         - laravel_app_template
       ansible.builtin.copy:
         src: tmuxinator.{{ item }}.yml
