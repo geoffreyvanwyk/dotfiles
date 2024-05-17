@@ -1,7 +1,6 @@
 ---
 - name: Git for Version Control of Source Code 
   hosts: all
-
   tasks:
     - name: Set name of default branch
       ansible.builtin.git_config:
@@ -23,7 +22,6 @@
 
 - name: Home Directories
   hosts: all
-
   tasks:
     - name: Create top-level home directories
       loop:
@@ -33,3 +31,15 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: directory
 
+- name: Tmux Multiplexer
+  hosts: all
+  tasks:
+    - name: Deploy tmuxinator project files for dotfiles
+      loop:
+        - dotfiles
+        - dot.nvim
+        - laravel_app_template
+      ansible.builtin.copy:
+        src: tmuxinator.{{ item }}.yml
+        dest: "{{ ansible_env.XDG_CONFIG_HOME }}/tmuxinator/{{ item }}.yml"
+        mode: u=rw,go=r
