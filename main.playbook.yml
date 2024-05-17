@@ -12,6 +12,32 @@
         dest: "{{ ansible_env.HOME }}/.bash_{{ item }}"
         mode: u=rw,go=r
 
+- name: Tmux Multiplexer
+  hosts: all
+  tasks:
+    - name: Deploy tmuxinator project files for dotfiles
+      loop:
+        - dotfiles
+        - dot-nvim
+        - laravel_app_template
+      ansible.builtin.copy:
+        src: tmuxinator.{{ item }}.yml
+        dest: "{{ ansible_env.XDG_CONFIG_HOME }}/tmuxinator/{{ item }}.yml"
+        mode: u=rw,go=r
+
+- name: Home Directories
+  hosts: all
+  tasks:
+    - name: Create top-level home directories
+      loop:
+        - doc
+        - learn/exercism
+        - learn/laravel/maryui
+        - src/my
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+
 - name: Git for Version Control of Source Code 
   hosts: all
   tasks:
@@ -33,26 +59,30 @@
         name: user.email
         value: geoffrey@vanwyk.biz 
 
-- name: Home Directories
-  hosts: all
-  tasks:
-    - name: Create top-level home directories
+    - name: Deploy repositories
       loop:
-        - learn
-        - src/my
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/{{ item }}"
-        state: directory
-
-- name: Tmux Multiplexer
-  hosts: all
-  tasks:
-    - name: Deploy tmuxinator project files for dotfiles
-      loop:
-        - dotfiles
-        - dot-nvim
-        - laravel_app_template
-      ansible.builtin.copy:
-        src: tmuxinator.{{ item }}.yml
-        dest: "{{ ansible_env.XDG_CONFIG_HOME }}/tmuxinator/{{ item }}.yml"
-        mode: u=rw,go=r
+        - repo: dotfiles
+          dest: "{{ ansible_env.HOME }}/.dotfiles"
+        - repo: dot.nvim 
+          dest: "{{ ansible_env.XDG_CONFIG_HOME }}/nvim/.git"
+          bare: true
+        - repo: my-private-notes
+          dest: "{{ ansible_env.HOME }}/doc/neorg"
+        - repo: werkstatt
+          dest: "{{ ansible_env.HOME }}/src/my/werkstatt"
+        - repo: ansible-role-moodle
+          dest: "{{ ansible_env.HOME }}/src/my/ansible-role-moodle"
+        - repo: ansible-role-moodle_uninstall
+          dest: "{{ ansible_env.HOME }}/src/my/ansible-role-moodle_uninstall"
+        - repo: ansible-collection-moodle
+          dest: "{{ ansible_env.HOME }}/src/my/ansible-collection-moodle"
+        - repo: ansible-role-php
+          dest: "{{ ansible_env.HOME }}/src/my/ansible-role-php"
+        - repo: exercism.nim
+          dest: "{{ ansible_env.HOME }}/learn/exercism/nim"
+        - repo: learn.maryui-bootcamp
+          dest: "{{ ansible_env.HOME }}/learn/laravel/maryui/bootcamp"
+      ansible.builtin.git:
+        repo: https://github.com/geoffreyvanwyk/{{ item.repo }}
+        dest: "{{ item.dest }}"
+        bare: "{{ item.bare | default(false) }}"
