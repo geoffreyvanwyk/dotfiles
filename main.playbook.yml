@@ -1,4 +1,17 @@
 ---
+- name: Bourne Again Shell
+  hosts: all
+  tasks:
+    - name: Deploy bash configuration files
+      loop:
+        - aliases
+        - env
+        - paths
+      ansible.builtin.copy:
+        src: bash.bash_{{ item }}
+        dest: "{{ ansible_env.HOME }}/.bash_{{ item }}"
+        mode: u=rw,go=r
+
 - name: Git for Version Control of Source Code 
   hosts: all
   tasks:
