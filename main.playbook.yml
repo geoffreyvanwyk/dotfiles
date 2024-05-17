@@ -20,6 +20,7 @@
         - dotfiles
         - dot-nvim
         - laravel_app_template
+        - werkstatt
       ansible.builtin.copy:
         src: tmuxinator.{{ item }}.yml
         dest: "{{ ansible_env.XDG_CONFIG_HOME }}/tmuxinator/{{ item }}.yml"
